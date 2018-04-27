@@ -1,0 +1,89 @@
+= Sample project for testing purpose
+
+[source, shell]
+----
+gradle clean assembleDist generatePomFileForNebulaPublication  :greeting-library:copyMavenArtifcatsToDist  --info --rerun-tasks -Dorg.gradle.project.version=7.0.0
+----
+
+This generates the following files:
+[source, shell]
+----
+╭─mgreau@mbpro ~/src/gradle-sample-project
+╰─$ tree
+.
+├── README.adoc
+├── build
+│   └── publications
+│       └── nebula
+│           └── pom-default.xml
+├── build.gradle
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+├── greeter
+│   ├── build
+│   │   ├── classes
+│   │   │   └── java
+│   │   │       └── main
+│   │   │           └── greeter
+│   │   │               └── Greeter.class
+│   │   ├── distributions
+│   │   │   ├── greeter-7.0.0.tar
+│   │   │   └── greeter-7.0.0.zip
+│   │   ├── libs
+│   │   │   └── greeter-7.0.0.jar
+│   │   ├── scripts
+│   │   │   ├── greeter
+│   │   │   └── greeter.bat
+│   │   └── tmp
+│   │       ├── compileJava
+│   │       └── jar
+│   │           └── MANIFEST.MF
+│   ├── build.gradle
+│   └── src
+│       └── main
+│           └── java
+│               └── greeter
+│                   └── Greeter.java
+├── greeting-library
+│   ├── build
+│   │   ├── classes
+│   │   │   └── groovy
+│   │   │       └── main
+│   │   │           └── greeter
+│   │   │               └── GreetingFormatter.class
+│   │   ├── distributions
+│   │   │   ├── greeting-library-7.0.0.tar
+│   │   │   ├── greeting-library-7.0.0.zip
+│   │   │   └── maven
+│   │   │       ├── greeting-library-7.0.0.jar
+│   │   │       └── greeting-library-7.0.0.pom
+│   │   ├── libs
+│   │   │   └── greeting-library-7.0.0.jar
+│   │   ├── publications
+│   │   │   └── nebula
+│   │   │       └── pom-default.xml
+│   │   └── tmp
+│   │       ├── compileGroovy
+│   │       │   └── groovy-java-stubs
+│   │       └── jar
+│   │           └── MANIFEST.MF
+│   ├── build.gradle
+│   ├── doc
+│   │   └── guide.adoc
+│   └── src
+│       └── main
+│           └── groovy
+│               └── greeter
+│                   └── GreetingFormatter.groovy
+└── settings.gradle
+
+----
+
+
+== Notes
+
+Source code example based on https://github.com/gradle-guides/creating-multi-project-builds

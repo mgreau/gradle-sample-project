@@ -1,0 +1,30 @@
+apply plugin : 'groovy'
+apply plugin: 'distribution'
+apply plugin : 'nebula.maven-base-publish'
+apply plugin : 'nebula.maven-nebula-publish'
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy:2.4.10'
+}
+
+distZip {
+    from "doc" 
+    into "${project.name}-${version}"
+    
+}
+distTar {
+    from "doc" 
+    into "${project.name}-${version}"
+}
+
+task copyMavenArtifcatsToDist(type: Copy) {
+
+    from "${buildDir}/publications/nebula/pom-default.xml"
+    from "${buildDir}/libs/"
+
+    into "${buildDir}/distributions/maven"
+
+    rename 'pom-default.xml', "${project.name}-${version}.pom"
+
+}
+

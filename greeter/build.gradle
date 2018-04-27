@@ -1,0 +1,13 @@
+apply plugin : 'java' 
+apply plugin : 'application' 
+
+
+mainClassName = 'greeter.Greeter'
+
+dependencies {
+    compile project(':greeting-library')
+}
+
+
+
+
