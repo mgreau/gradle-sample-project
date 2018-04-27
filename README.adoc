@@ -2,13 +2,13 @@
 
 [source, shell]
 ----
-gradle clean assembleDist generatePomFileForNebulaPublication  :greeting-library:copyMavenArtifcatsToDist  --info --rerun-tasks -Dorg.gradle.project.version=7.0.0
+./gradlew clean assembleDist greeting-library:javadocJar greeting-library:sourceJar generatePomFileForNebulaPublication  :greeting-library:copyMavenArtifcatsToDist  --info -Dorg.gradle.project.version=7.0.0
 ----
 
 This generates the following files:
 [source, shell]
 ----
-╭─mgreau@mbpro ~/src/gradle-sample-project
+╭─mgreau@mbpro ~/elastic/git/mgreau/gradle-sample-project  ‹master*›
 ╰─$ tree
 .
 ├── README.adoc
@@ -59,9 +59,13 @@ This generates the following files:
 │   │   │   ├── greeting-library-7.0.0.tar
 │   │   │   ├── greeting-library-7.0.0.zip
 │   │   │   └── maven
+│   │   │       ├── greeting-library-7.0.0-javadoc.jar
+│   │   │       ├── greeting-library-7.0.0-sources.jar
 │   │   │       ├── greeting-library-7.0.0.jar
 │   │   │       └── greeting-library-7.0.0.pom
 │   │   ├── libs
+│   │   │   ├── greeting-library-7.0.0-javadoc.jar
+│   │   │   ├── greeting-library-7.0.0-sources.jar
 │   │   │   └── greeting-library-7.0.0.jar
 │   │   ├── publications
 │   │   │   └── nebula
@@ -69,7 +73,11 @@ This generates the following files:
 │   │   └── tmp
 │   │       ├── compileGroovy
 │   │       │   └── groovy-java-stubs
-│   │       └── jar
+│   │       ├── jar
+│   │       │   └── MANIFEST.MF
+│   │       ├── javadocJar
+│   │       │   └── MANIFEST.MF
+│   │       └── sourceJar
 │   │           └── MANIFEST.MF
 │   ├── build.gradle
 │   ├── doc
@@ -81,6 +89,7 @@ This generates the following files:
 │                   └── GreetingFormatter.groovy
 └── settings.gradle
 
+43 directories, 34 files
 ----
 
 

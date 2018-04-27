@@ -1,7 +1,9 @@
-apply plugin : 'groovy'
+apply plugin: 'groovy'
 apply plugin: 'distribution'
-apply plugin : 'nebula.maven-base-publish'
-apply plugin : 'nebula.maven-nebula-publish'
+apply plugin: 'nebula.maven-base-publish'
+apply plugin: 'nebula.maven-nebula-publish'
+apply plugin: 'nebula.javadoc-jar'
+apply plugin: 'nebula.source-jar'
 
 dependencies {
     compile 'org.codehaus.groovy:groovy:2.4.10'
